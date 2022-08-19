@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/{page}', [PageController::class, 'show'])->name('page.show');
-Route::get('/form-completed', [PageController::class, 'success'])->name('form-completed');
+Route::get('/success/{source}', [PageController::class, 'formSuccess'])->name('form.success');
 Route::post('/submit', [PageController::class, 'sendToHubspot']);
 
 Route::middleware([

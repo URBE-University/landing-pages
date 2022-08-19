@@ -15,7 +15,7 @@ class PageController extends Controller
      */
     public function show($page)
     {
-        $page = Page::where('slug', $page)->firstorfail();
+        $page = Page::where('slug', $page)->where('status', 1)->firstorfail();
         return view('web.templates.'.$page->template, [
             'title' => $page->title,
             'about' => $page->about,
@@ -25,6 +25,7 @@ class PageController extends Controller
             'document_en_url' => $page->document_en_url,
             'document_es_url' => $page->document_es_url,
             'questions' => $page->questions,
+            'lock_docs' => $page->lock_docs,
         ]);
     }
 
@@ -77,6 +78,23 @@ class PageController extends Controller
                 Log::error($th);
             }
         }
-        return redirect()->to('/form-completed');
+        return redirect()->route('form.success', [
+            'source' => $request['source'],
+        ]);
+    }
+
+    /**
+     * Redirects user when form submitted
+     */
+    public function formSuccess($source)
+    {
+        $page = Page::where('source', $source)->where('status', 1)->firstorfail();
+
+        return view('web.success', [
+            'title' => $page->title,
+            'source' => $page->source,
+            'doc_en_url' => ($page->lock_docs === 1 && $page->document_en_url) ? $page->document_en_url : null,
+            'doc_es_url' => ($page->lock_docs === 1 && $page->document_es_url) ? $page->document_es_url : null,
+        ]);
     }
 }

@@ -51,12 +51,30 @@
                     <input type="file" id="document_es_url" wire:model.defer="document_es_url" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 mt-1 outline-none border-none">
                     <x-jet-input-error for="document_es_url" class="mt-1"/>
                 </div>
+
+                <div class="mt-6 border-t"></div>
+
+                <div class="mt-6">
+                    <label for="status" class="flex items-center space-x-2">
+                        <x-jet-input type="checkbox" id="status" wire:model.defer="status"/>
+                        <span class="block font-medium text-sm text-gray-700">Publish page</span>
+                    </label>
+                </div>
+                <div class="mt-6">
+                    <label for="lock_docs" class="flex items-center space-x-2">
+                        <x-jet-input type="checkbox" id="lock_docs" wire:model.defer="lock_docs"/>
+                        <span class="block font-medium text-sm text-gray-700">Lock documents upon form submission.</span>
+                    </label>
+                </div>
             </div>
+
 
             <div class="mt-6 flex items-center justify-end space-x-4">
                 <a href="{{ route('admin.page.index') }}" class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition">Cancel</a>
                 <x-jet-button wire:click="save">Save changes</x-jet-button>
             </div>
+
+            <div class="mt-6 border-t"></div>
 
             <div class="mt-6 flex items-center justify-between">
                 <h3 class="text-2xl font-bold">Frequently asked questions</h3>

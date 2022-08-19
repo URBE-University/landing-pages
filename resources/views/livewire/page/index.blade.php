@@ -18,6 +18,12 @@
                             <th scope="col" class="py-3 px-6">
                                 Page title
                             </th>
+                            <th scope="col" class="py-3 px-6">
+                                Status
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Docs locked
+                            </th>
                             <th scope="col" class="py-3 px-6 sr-only">
                                 Actions
                             </th>
@@ -28,6 +34,12 @@
                             <tr class="bg-white border-b">
                                 <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                                     {{ $page->title }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ ($page->status === 1) ? __("Published") : __("Draft") }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ ($page->lock_docs === 1) ? __("Yes") : __("No") }}
                                 </td>
                                 <td class="py-4 px-6">
                                     <div class="flex justify-end items-center space-x-4">

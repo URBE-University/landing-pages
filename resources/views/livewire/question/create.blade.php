@@ -1,5 +1,5 @@
 <div>
-    <button wire:click="$toggle('modal')">Add question</button>
+    <x-jet-button wire:click="$toggle('modal')">Add question</x-jet-button>
 
     <x-jet-dialog-modal wire:model="modal">
         <x-slot name="title">Add question</x-slot>

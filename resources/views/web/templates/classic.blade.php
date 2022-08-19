@@ -80,9 +80,17 @@
                                 @endif
                                 <input type="number" class="form-input" name="zip" placeholder="{{ __("Area code / Zip") }}">
 
-                                <div class="mt-8 flex items-center justify-between">
-                                    <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="form-link" onclick="fathom.trackGoal('EFWIUGQZ', 0);">{{__("Download brochure")}}</a>
-                                    <button class="form-button" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">{{__("Contact me!")}}</button>
+                                <div class="mt-6">
+                                    <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
+                                        @if ($lock_docs)
+                                            {{__("Download brochure!")}}
+                                        @else
+                                            {{__("Contact me!")}}
+                                        @endif
+                                    </button>
+                                    @if (!$lock_docs)
+                                        <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="form-link inline-block mt-4" onclick="fathom.trackGoal('EFWIUGQZ', 0);">{{__("Download brochure")}}</a>
+                                    @endif
                                 </div>
                             </form>
                         </div>
@@ -126,18 +134,18 @@
                                 <p class="form-subtitle">{{ __("We want to be as inclusive as we possibly can. That's why all of our programs are currently available in both English and Spanish. You can get more information about this program in your preferred language right here.") }}</p>
                             </div>
                             <div class="h-full col-span-2 md:col-span-1">
-                                <div class="h-full flex items-center justify-center space-x-16">
+                                <div class="w-full h-full flex items-center justify-center space-x-16 mx-auto">
                                     <div class="flex-none text-center">
                                         <img src="{{ asset('es.svg') }}" alt="Spain flag" class="w-16 h-16 mx-auto">
                                         <h3 class="mt-2 text-lg font-bold">Espa&ntilde;ol</h3>
-                                        @if ($document_es_url)
+                                        @if ($document_es_url && !$lock_docs)
                                             <a href="{{ ($document_es_url) ? asset($document_es_url) : '' }}" target="_blank" class="text-base capitalize underline" onclick="fathom.trackGoal('9FXEDZDZ', 0);">Descargar documento</a>
                                         @endif
                                     </div>
                                     <div class="flex-none text-center">
                                         <img src="{{ asset('us.svg') }}" alt="United States flag" class="w-16 h-16 mx-auto">
                                         <h3 class="mt-2 text-lg font-bold">English</h3>
-                                        @if ($document_en_url)
+                                        @if ($document_en_url && !$lock_docs)
                                             <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="text-base capitalize underline" onclick="fathom.trackGoal('EFWIUGQZ', 0);">Download document</a>
                                         @endif
                                     </div>
@@ -246,9 +254,17 @@
 
                         <input type="number" class="form-input" name="zip" placeholder="{{ __("Area code / Zip") }}">
 
-                        <div class="mt-8 flex items-center justify-between">
-                            <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="form-link" onclick="fathom.trackGoal('EFWIUGQZ', 0);">{{__("Download brochure")}}</a>
-                            <button class="form-button" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">{{__("Contact me!")}}</button>
+                        <div class="mt-8">
+                            <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
+                                @if ($lock_docs)
+                                    {{__("Download brochure!")}}
+                                @else
+                                    {{__("Contact me!")}}
+                                @endif
+                            </button>
+                            @if (!$lock_docs)
+                                <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="form-link inline-block mt-4" onclick="fathom.trackGoal('EFWIUGQZ', 0);">{{__("Download brochure")}}</a>
+                            @endif
                         </div>
                     </form>
                 </div>

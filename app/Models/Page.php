@@ -16,6 +16,8 @@ class Page extends Model
         'about',
         'cover',
         'source',
+        'status',
+        'lock_docs',
         'document_en_url',
         'document_es_url',
         'alt_phone'

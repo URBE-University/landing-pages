@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('about')->nullable();
             $table->boolean('status')->default(0);
+            $table->boolean('lock_docs')->default(0);
             $table->string('cover');
             $table->string('source')->nullable();
             $table->string('document_en_url')->nullable();

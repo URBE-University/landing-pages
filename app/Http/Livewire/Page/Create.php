@@ -10,7 +10,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $template, $title, $slug, $about, $source, $cover, $alt_phone, $document_en_url, $document_es_url;
+    public $template, $title, $slug, $about, $source, $cover, $alt_phone, $document_en_url, $document_es_url, $status = false, $lock_docs = false;
 
     public function render()
     {
@@ -23,8 +23,6 @@ class Create extends Component
             'template' => 'required',
             'title' => 'required',
             'cover' => 'required|file|max:1024|mimes:webp,jpg,png',
-            'document_en_url' => 'required|file|max:102400|mimes:pdf',
-            'document_es_url' => 'required|file|max:102400|mimes:pdf'
         ]);
 
         try {
@@ -45,6 +43,8 @@ class Create extends Component
                 'title' => $this->title,
                 'slug' => str($this->slug)->slug() ?? str($this->title)->slug(),
                 'about' => $this->about,
+                'status' => ($this->status === true) ? 1 : 0,
+                'lock_docs' => ($this->lock_docs === true) ? 1 : 0,
                 'source' => str($this->source)->slug(),
                 'alt_phone' => $this->alt_phone,
                 'cover' => $cover_path,
