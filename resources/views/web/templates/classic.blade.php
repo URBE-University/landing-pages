@@ -11,7 +11,7 @@
         @vite('resources/css/app.css')
 
         {{-- Fathom Analytics Script --}}
-        <script src="https://https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
+        <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
 
         {{-- Recaptcha script --}}
         {!! htmlScriptTagJsApi() !!}
