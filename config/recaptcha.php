@@ -148,7 +148,7 @@ return [
          * The size of the widget.
          * Supported "normal", "compact"
          */
-        'size'             => 'normal',
+        'size'             => 'compact',
 
         /**
          * The tabindex of the widget and challenge.
