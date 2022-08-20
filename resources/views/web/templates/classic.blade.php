@@ -4,34 +4,29 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <link rel="shortcut icon" href="{{ asset('favicon.jpg') }}" type="image/jpeg">
         <title>{{ ($title ?? '') . ' - ' . config('app.name', 'URBE University') }}</title>
-        <meta name="description" content="{{$title}}">
+        <meta name="description" content="{{ $about ?? $title }}">
         <!-- Styles -->
         @vite('resources/css/app.css')
 
         {{-- Fathom Analytics Script --}}
         <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
+        {{-- Google Analytics --}}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ9RRCYVY1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-GQ9RRCYVY1');
+        </script>
 
         {{-- Recaptcha script --}}
         {!! htmlScriptTagJsApi() !!}
     </head>
     <body class="bg-white">
-        <nav class="max-w-7xl mx-auto border-b md:border-b-0">
-            <div class="w-full flex items-center justify-between py-8 px-4 sm:px-6 lg:px-8">
-                <img src="{{ asset('urbe-logo.svg') }}" alt="" class="w-24 md:w-36">
-
-                <div class="flex items-center space-x-3">
-                    <p class="hidden sm:block text-normal text-slate-600">{{__("We are here to help!")}}</p>
-                    <a href="tel:+{{ ($alt_phone ?? '1.844.744.8723') }}" class="font-bold text-sky-500 hover:underline flex items-center space-x-1" onclick="fathom.trackGoal('IMTFYIZT', 0);">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                        </svg>
-                        <span>{{ ($alt_phone ?? '1.844.744.8723') }}</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
+        @include('web.nav')
 
         {{-- Header --}}
         <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="header">
@@ -59,26 +54,26 @@
                                 @csrf
                                 <input type="hidden" name="source" value="{{$source ?? ''}}">
 
-                                <input  type="text" class="form-input" name="firstname" placeholder="{{ __("First Name") }} *" autofocus>
+                                <input  type="text" class="form-input" name="firstname" :value="old('firstname')" placeholder="{{ __("First Name") }} *" autofocus>
                                 @if ($errors->has('firstname'))
                                     <p class="text-xs text-red-600 mt-1">{{ __("Please enter your First Name") }}</p>
                                 @endif
 
-                                <input  type="text" class="form-input" name="lastname" placeholder="{{ __("Last Name") }} *">
+                                <input  type="text" class="form-input" name="lastname" :value="old('lastname')" placeholder="{{ __("Last Name") }} *">
                                 @if ($errors->has('lastname'))
                                     <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Last Name") }}</p>
                                 @endif
 
-                                <input  type="email" class="form-input" name="email" placeholder="{{ __("E-mail") }} *">
+                                <input  type="email" class="form-input" name="email" :value="old('email')" placeholder="{{ __("E-mail") }} *">
                                 @if ($errors->has('email'))
                                     <p class="text-xs text-red-600 mt-1">{{ $errors->get('email')[0] }}</p>
                                 @endif
 
-                                <input  type="tel" class="form-input" name="phone" placeholder="{{ __("Phone") }} *">
+                                <input  type="tel" class="form-input" name="phone" :value="old('phone')" placeholder="{{ __("Phone") }} *">
                                 @if ($errors->has('phone'))
                                     <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Phone") }}</p>
                                 @endif
-                                <input type="number" class="form-input" name="zip" placeholder="{{ __("Area code / Zip") }}">
+                                <input type="number" class="form-input" name="zip" :value="old('zip')" placeholder="{{ __("Area code / Zip") }}">
 
                                 <div class="mt-6">
                                     <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
@@ -232,27 +227,27 @@
                         @csrf
                         <input type="hidden" name="source" value="{{$source ?? ''}}">
 
-                        <input  type="text" class="form-input" name="firstname" placeholder="{{ __("First Name") }} *" autofocus>
+                        <input  type="text" class="form-input" name="firstname" :value="old('firstname')" placeholder="{{ __("First Name") }} *" autofocus>
                         @if ($errors->has('firstname'))
                             <p class="text-xs text-red-600 mt-1">{{ __("Please enter your First Name") }}</p>
                         @endif
 
-                        <input  type="text" class="form-input" name="lastname" placeholder="{{ __("Last Name") }} *">
+                        <input  type="text" class="form-input" name="lastname" :value="old('lastname')" placeholder="{{ __("Last Name") }} *">
                         @if ($errors->has('lastname'))
                             <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Last Name") }}</p>
                         @endif
 
-                        <input  type="email" class="form-input" name="email" placeholder="{{ __("E-mail") }} *">
+                        <input  type="email" class="form-input" name="email" :value="old('email')" placeholder="{{ __("E-mail") }} *">
                         @if ($errors->has('email'))
                             <p class="text-xs text-red-600 mt-1">{{ $errors->get('email')[0] }}</p>
                         @endif
 
-                        <input  type="tel" class="form-input" name="phone" placeholder="{{ __("Phone") }} *">
+                        <input  type="tel" class="form-input" name="phone" :value="old('phone')" placeholder="{{ __("Phone") }} *">
                         @if ($errors->has('phone'))
                             <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Phone") }}</p>
                         @endif
 
-                        <input type="number" class="form-input" name="zip" placeholder="{{ __("Area code / Zip") }}">
+                        <input type="number" class="form-input" name="zip" :value="old('zip')" placeholder="{{ __("Area code / Zip") }}">
 
                         <div class="mt-8">
                             <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
@@ -272,7 +267,7 @@
         </main>
 
         {{-- Footer --}}
-        <div class="py-4 text-center text-sm font-semibold text-slate-600">© {{ date('Y') }} URBE University · All rights reserved</div>
+        <footer class="py-4 text-center text-sm font-semibold text-slate-600">© {{ date('Y') }} URBE University · All rights reserved</footer>
 
         {{-- Scripts --}}
         <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/7083196.js"></script>
