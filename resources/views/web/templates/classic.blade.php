@@ -275,6 +275,7 @@
         <div class="py-4 text-center text-sm font-semibold text-slate-600">© {{ date('Y') }} URBE University · All rights reserved</div>
 
         {{-- Scripts --}}
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/7083196.js"></script>
         <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
         @vite('resources/js/app.js')
     </body>
