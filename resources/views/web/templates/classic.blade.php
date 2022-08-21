@@ -84,7 +84,7 @@
                                             {{__("Contact me!")}}
                                         @endif
                                     </button>
-                                    @if (!$lock_docs)
+                                    @if ($document_en_url && !$lock_docs)
                                         <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="form-link inline-block mt-4" onclick="fathom.trackGoal('EFWIUGQZ', 0);">{{__("Download brochure")}}</a>
                                     @endif
                                 </div>
@@ -258,7 +258,7 @@
                                     {{__("Contact me!")}}
                                 @endif
                             </button>
-                            @if (!$lock_docs)
+                            @if ($document_en_url && !$lock_docs)
                                 <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="form-link inline-block mt-4" onclick="fathom.trackGoal('EFWIUGQZ', 0);">{{__("Download brochure")}}</a>
                             @endif
                         </div>
