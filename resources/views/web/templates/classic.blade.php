@@ -54,26 +54,27 @@
                                 @csrf
                                 <input type="hidden" name="source" value="{{$source ?? ''}}">
 
-                                <input  type="text" class="form-input" name="firstname" :value="old('firstname')" placeholder="{{ __("First Name") }} *" autofocus>
+                                <input  type="text" class="form-input" name="firstname"  placeholder="{{ __("First Name") }} *" autofocus>
                                 @if ($errors->has('firstname'))
                                     <p class="text-xs text-red-600 mt-1">{{ __("Please enter your First Name") }}</p>
                                 @endif
 
-                                <input  type="text" class="form-input" name="lastname" :value="old('lastname')" placeholder="{{ __("Last Name") }} *">
+                                <input  type="text" class="form-input" name="lastname"  placeholder="{{ __("Last Name") }} *">
                                 @if ($errors->has('lastname'))
                                     <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Last Name") }}</p>
                                 @endif
 
-                                <input  type="email" class="form-input" name="email" :value="old('email')" placeholder="{{ __("E-mail") }} *">
+                                <input  type="email" class="form-input" name="email"  placeholder="{{ __("E-mail") }} *">
                                 @if ($errors->has('email'))
                                     <p class="text-xs text-red-600 mt-1">{{ $errors->get('email')[0] }}</p>
                                 @endif
 
-                                <input  type="tel" class="form-input" name="phone" :value="old('phone')" placeholder="{{ __("Phone") }} *">
+                                <input  type="tel" class="form-input" name="phone"  placeholder="{{ __("Phone") }} *">
                                 @if ($errors->has('phone'))
                                     <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Phone") }}</p>
                                 @endif
-                                <input type="number" class="form-input" name="zip" :value="old('zip')" placeholder="{{ __("Area code / Zip") }}">
+
+                                <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
 
                                 <div class="mt-6">
                                     <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
@@ -227,27 +228,27 @@
                         @csrf
                         <input type="hidden" name="source" value="{{$source ?? ''}}">
 
-                        <input  type="text" class="form-input" name="firstname" :value="old('firstname')" placeholder="{{ __("First Name") }} *" autofocus>
+                        <input  type="text" class="form-input" name="firstname"  placeholder="{{ __("First Name") }} *" autofocus>
                         @if ($errors->has('firstname'))
                             <p class="text-xs text-red-600 mt-1">{{ __("Please enter your First Name") }}</p>
                         @endif
 
-                        <input  type="text" class="form-input" name="lastname" :value="old('lastname')" placeholder="{{ __("Last Name") }} *">
+                        <input  type="text" class="form-input" name="lastname"  placeholder="{{ __("Last Name") }} *">
                         @if ($errors->has('lastname'))
                             <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Last Name") }}</p>
                         @endif
 
-                        <input  type="email" class="form-input" name="email" :value="old('email')" placeholder="{{ __("E-mail") }} *">
+                        <input  type="email" class="form-input" name="email"  placeholder="{{ __("E-mail") }} *">
                         @if ($errors->has('email'))
                             <p class="text-xs text-red-600 mt-1">{{ $errors->get('email')[0] }}</p>
                         @endif
 
-                        <input  type="tel" class="form-input" name="phone" :value="old('phone')" placeholder="{{ __("Phone") }} *">
+                        <input  type="tel" class="form-input" name="phone"  placeholder="{{ __("Phone") }} *">
                         @if ($errors->has('phone'))
                             <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Phone") }}</p>
                         @endif
 
-                        <input type="number" class="form-input" name="zip" :value="old('zip')" placeholder="{{ __("Area code / Zip") }}">
+                        <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
 
                         <div class="mt-8">
                             <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">

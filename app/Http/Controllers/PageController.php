@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
 use App\Models\Page;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Blade;
 
 class PageController extends Controller
 {
@@ -35,14 +34,15 @@ class PageController extends Controller
     public function sendToHubspot(Request $request)
     {
         $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|email:dns|email:filter|email:spoof',
-            'phone' => 'required'
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'email' => ['required', 'email:dns'],
+            'phone' => ['required'],
+            'lead_source' => ['required'],
         ]);
 
         // Create the contact on the database
-        Contact::create([
+        $contact = Contact::create([
             'email' => $request['email'],
             'firstname' => $request['firstname'],
             'lastname' => $request['lastname'],
@@ -78,6 +78,7 @@ class PageController extends Controller
                 Log::error($th);
             }
         }
+
         return redirect()->route('form.success', [
             'source' => $request['source'],
         ]);
