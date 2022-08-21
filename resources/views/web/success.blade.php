@@ -37,8 +37,33 @@
         <main class="py-12 w-full">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 class="text-5xl font-extrabold text-[#073260] text-center">{{__("Thank you!")}}</h1>
-                <p class="text-lg mt-8">{{__("We have received your inquiry, and one of our admissions representatives will contact you shortly. In the meantime, you can learn more about our other programs, and events that are happening right now at URBE. Click one of the links below to continue.")}}</p>
-                <ul class="mt-8 space-y-3">
+
+                @if ($lock_docs && ($doc_es_url || $doc_en_url))
+                    <p class="text-lg mt-8">{{ __("Thank you for reaching out! Now you can download our brochure by clicking the links below.") }}</p>
+                    <div class="mt-6 grid grid-cols-2 justify-center">
+                        @if ($doc_es_url)
+                            <div class="col-span-2 md:col-span-1 text-center">
+                                <a href="{{ ($doc_es_url) ? asset($doc_es_url) : '' }}" class="inline-block mt-4 text-sm uppercase font-medium text-[#073260] hover:bg-sky-100 rounded-lg p-4" onclick="fathom.trackGoal('9FXEDZDZ', 0);">
+                                    <img src="{{ asset('es.svg') }}" alt="Spain flag" class="w-24 h-24 mx-auto">
+                                    <div class="mt-4">Descargar documento</div>
+                                </a>
+                            </div>
+                        @endif
+                        @if ($doc_en_url)
+                            <div class="col-span-2 md:col-span-1 text-center">
+                                <a href="{{ ($doc_en_url) ? asset($doc_en_url) : '' }}" class="inline-block mt-4 text-sm uppercase font-medium text-[#073260] hover:bg-sky-100 rounded-lg p-4" onclick="fathom.trackGoal('EFWIUGQZ', 0);">
+                                    <img src="{{ asset('us.svg') }}" alt="USA flag" class="w-24 h-24 mx-auto">
+                                    <div class="mt-4">Download Brochure</div>
+                                </a>
+                            </div>
+                        @endif
+                    </div>
+                @else
+                    <p class="text-lg mt-8">{{__("We have received your inquiry, and one of our admissions representatives will contact you shortly. In the meantime, you can learn more about our other programs, and events that are happening right now at URBE. Click one of the links below to continue.")}}</p>
+                @endif
+
+                {{-- External Links --}}
+                <ul class="mt-12 space-y-3">
                     <li>
                         <a href="https://www.urbe.university/academics?utm_source={{$source}}" target="_blank" class="flex items-center space-x-2 text-[#0ea5e9] hover:text-[#073260] hover:translate-x-1 transition-all">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

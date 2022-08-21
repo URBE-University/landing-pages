@@ -94,6 +94,7 @@ class PageController extends Controller
         return view('web.success', [
             'title' => $page->title,
             'source' => $page->source,
+            'lock_docs' => $page->lock_docs,
             'doc_en_url' => ($page->lock_docs === 1 && $page->document_en_url) ? $page->document_en_url : null,
             'doc_es_url' => ($page->lock_docs === 1 && $page->document_es_url) ? $page->document_es_url : null,
         ]);
