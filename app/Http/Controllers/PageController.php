@@ -36,7 +36,7 @@ class PageController extends Controller
         $request->validate([
             'firstname' => ['required'],
             'lastname' => ['required'],
-            'email' => ['required', 'email:dns'],
+            'email' => ['required', 'email:rfc,spoof,dns'],
             'phone' => ['required'],
             'lead_source' => ['required'],
         ]);
