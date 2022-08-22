@@ -74,7 +74,7 @@
                 <x-jet-button wire:click="save">Save changes</x-jet-button>
             </div>
 
-            <div class="mt-6 border-t"></div>
+            {{-- <div class="mt-6 border-t"></div>
 
             <div class="mt-6 flex items-center justify-between">
                 <h3 class="text-2xl font-bold">Frequently asked questions</h3>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
+            </div> --}}
 
         </div>
     </div>
