@@ -7,9 +7,10 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $questions;
+    public $page, $questions;
     public function mount(Page $page)
     {
+        $this->page = $page;
         $this->questions = $page->questions;
     }
 
