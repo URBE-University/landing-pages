@@ -27,6 +27,9 @@ class Edit extends Component
 
     public function render()
     {
+        dd(
+            phpinfo()
+        );
         return view('livewire.page.edit', [
             'questions' => $this->page->questions
         ]);
