@@ -89,8 +89,7 @@
                     ])>
                         <div class="font-medium text-slate-800">{{ $question->question }}</div>
                         <div class="">
-                            <livewire:question.delete :question="$question->id" :wire:key="$page->id">
-                            {{-- @livewire('question.delete', ['question' => $question->id, 'page' => $page->id, 'key' => $page->id]) --}}
+                            @livewire('question.delete', ['question' => $question->id, 'page' => $page->id], key($page->id))
                         </div>
                     </div>
                 @endforeach
