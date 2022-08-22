@@ -38,11 +38,11 @@ class PageController extends Controller
             'lastname' => ['required'],
             'email' => ['required', 'email:rfc,spoof,dns'],
             'phone' => ['required'],
-            'lead_source' => ['required'],
+            'source' => ['required'],
         ]);
 
         // Create the contact on the database
-        $contact = Contact::create([
+        Contact::create([
             'email' => $request['email'],
             'firstname' => $request['firstname'],
             'lastname' => $request['lastname'],
