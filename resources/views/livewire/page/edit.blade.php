@@ -82,17 +82,7 @@
             </div>
 
             <div class="mt-2 bg-white rounded-lg p-8 shadow">
-                @foreach ($questions as $question)
-                    <div @class([
-                        'py-2 flex items-center justify-between',
-                        'border-b' => !$loop->last
-                    ])>
-                        <div class="font-medium text-slate-800">{{ $question->question }}</div>
-                        <div class="">
-                            @livewire('question.delete', ['question' => $question->id, 'page' => $page->id], key($page->id))
-                        </div>
-                    </div>
-                @endforeach
+                @livewire('question.index', ['page' => $page->id])
             </div>
 
         </div>
