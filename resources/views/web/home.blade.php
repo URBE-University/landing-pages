@@ -49,5 +49,8 @@
                 <p class="mt-1">© {{ date('Y') }} URBE University · All rights reserved</p>
             </div>
         </footer>
+        <script>
+            console.log("Website built by Elvis Blanco https://twitter.com/_ebglez");
+        </script>
     </body>
 </html>
