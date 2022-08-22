@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <footer class="md:fixed bottom-0 w-full px-4 sm:px-6 lg:px-8">
+        <footer class="static w-full px-4 sm:px-6 lg:px-8">
             <div class="py-4 text-center text-xs md:text-sm font-medium text-slate-600">
                 <p>Information is correct at the time of publishing but may be subject to change without notice.</p>
                 <p class="mt-1">US: <a href="tel:+18447448723" class="text-[#0ea5e9]">(+1) 844-744-8723</a> EMAIL: <a href="mailto:admissions@urbe.university" class="text-[#0ea5e9]">admissions@urbe.universiy</a></p>
