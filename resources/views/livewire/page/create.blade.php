@@ -8,6 +8,7 @@
                     <select id="template" wire:model="template" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block w-full mt-1">
                         <option></option>
                         <option value="classic">Classic</option>
+                        <option value="classic-es">Classic - Spanish</option>
                     </select>
                     <x-jet-input-error for="template" class="mt-1"/>
                 </div>
