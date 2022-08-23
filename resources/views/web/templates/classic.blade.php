@@ -213,7 +213,7 @@
             <div class="py-12 md:py-24" id="cta">
                 {{-- CTA --}}
                 <div class="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 class="text-center text-3xl font-bold text-[#073260]">{{ __("Would you like to learn more about the ") . ($title ?? '') . '?' }}</h2>
+                    <h2 class="text-center text-3xl font-bold text-[#073260]">{{ __("Would you like to learn more about ") . ($title ?? '') . '?' }}</h2>
                     <p class="text-lg text-gray-800/95 font-medium mt-4">{{ __("Complete the form on this page with your information, and one of our Admissions representatives will contact you soon.") }}</p>
                     <div class="mt-8">
                         <a href="#header" class="px-5 py-3 rounded-lg bg-[#10a2da] hover:bg-[#073260]/90 text-white text-sm font-semibold uppercase tracking-wide transition-all">Take me to the form!</a>
