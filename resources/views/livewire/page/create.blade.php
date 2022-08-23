@@ -54,7 +54,12 @@
                 </div>
 
                 <div class="mt-6 border-t"></div>
-
+                <div class="mt-6">
+                    <label for="is_program" class="flex items-center space-x-2">
+                        <x-jet-input type="checkbox" id="is_program" wire:model="is_program"/>
+                        <span class="block font-medium text-sm text-gray-700">Is this page for a program?</span>
+                    </label>
+                </div>
                 <div class="mt-6">
                     <label for="status" class="flex items-center space-x-2">
                         <x-jet-input type="checkbox" id="status" wire:model="status"/>

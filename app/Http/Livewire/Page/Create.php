@@ -10,7 +10,7 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $template, $title, $slug, $about, $source, $cover, $alt_phone, $document_en_url, $document_es_url, $status = false, $lock_docs = false;
+    public $template, $title, $slug, $about, $source, $cover, $alt_phone, $document_en_url, $document_es_url, $status = false, $lock_docs = false, $is_program = false;
 
     public function render()
     {
@@ -45,6 +45,7 @@ class Create extends Component
                 'about' => $this->about,
                 'status' => ($this->status === true) ? 1 : 0,
                 'lock_docs' => ($this->lock_docs === true) ? 1 : 0,
+                'is_program' => ($this->is_program === true) ? 1 : 0,
                 'source' => str($this->source)->slug(),
                 'alt_phone' => $this->alt_phone,
                 'cover' => $cover_path,
