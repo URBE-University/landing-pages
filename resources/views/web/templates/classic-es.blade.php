@@ -135,75 +135,79 @@
             </div>
 
             {{-- Languages --}}
-            <div class="w-full bg-gray-100" id="features">
-                <div class="max-w-7xl mx-auto">
-                    <div class="px-4 sm:px-6 lg:px-8 py-12 md:py-24" id="languages">
-                        <div class="grid grid-cols-2 gap-8">
-                            <div class="col-span-2 md:col-span-1 text-center md:text-left">
-                                <h2 class="text-3xl font-bold text-[#073260]">Múltiples idiomas</h2>
-                                <p class="form-subtitle">Todos nuestros programas están actualmente disponibles en inglés y español. Aquí puede encontrar más información sobre este programa en su idioma preferido.</p>
-                            </div>
-                            <div class="h-full col-span-2 md:col-span-1">
-                                <div class="w-full h-full flex items-center justify-center space-x-16 mx-auto">
-                                    @if ($document_es_url && !$lock_docs)
-                                    <div class="flex-none text-center">
-                                            <a href="{{ ($document_es_url) ? asset($document_es_url) : '' }}" target="_blank" class="text-base capitalize underline text-[#073260] hover:text-[#10a2da]" onclick="fathom.trackGoal('9FXEDZDZ', 0);">
-                                                <img src="{{ asset('es.svg') }}" alt="Spain flag" class="w-16 h-16 mx-auto">
-                                                <h3 class="mt-2 text-lg font-bold">Espa&ntilde;ol</h3>
-                                            </a>
-                                        </div>
-                                    @endif
-                                    @if ($document_en_url && !$lock_docs)
-                                    <div class="flex-none text-center">
-                                            <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="text-base capitalize underline text-[#073260] hover:text-[#10a2da]" onclick="fathom.trackGoal('EFWIUGQZ', 0);">
-                                                <img src="{{ asset('us.svg') }}" alt="United States flag" class="w-16 h-16 mx-auto">
-                                                <h3 class="mt-2 text-lg font-bold">English</h3>
-                                            </a>
-                                        </div>
-                                    @endif
+            @if (($document_es_url || $document_en_url) && !$lock_docs)
+                <div class="w-full bg-gray-100" id="features">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="px-4 sm:px-6 lg:px-8 py-12 md:py-24" id="languages">
+                            <div class="grid grid-cols-2 gap-8">
+                                <div class="col-span-2 md:col-span-1 text-center md:text-left">
+                                    <h2 class="text-3xl font-bold text-[#073260]">Múltiples idiomas</h2>
+                                    <p class="form-subtitle">Todos nuestros programas están actualmente disponibles en inglés y español. Aquí puede encontrar más información sobre este programa en su idioma preferido.</p>
+                                </div>
+                                <div class="h-full col-span-2 md:col-span-1">
+                                    <div class="w-full h-full flex items-center justify-center space-x-16 mx-auto">
+                                        @if ($document_es_url && !$lock_docs)
+                                        <div class="flex-none text-center">
+                                                <a href="{{ ($document_es_url) ? asset($document_es_url) : '' }}" target="_blank" class="text-base capitalize underline text-[#073260] hover:text-[#10a2da]" onclick="fathom.trackGoal('9FXEDZDZ', 0);">
+                                                    <img src="{{ asset('es.svg') }}" alt="Spain flag" class="w-16 h-16 mx-auto">
+                                                    <h3 class="mt-2 text-lg font-bold">Espa&ntilde;ol</h3>
+                                                </a>
+                                            </div>
+                                        @endif
+                                        @if ($document_en_url && !$lock_docs)
+                                        <div class="flex-none text-center">
+                                                <a href="{{ ($document_en_url) ? asset($document_en_url) : '' }}" target="_blank" class="text-base capitalize underline text-[#073260] hover:text-[#10a2da]" onclick="fathom.trackGoal('EFWIUGQZ', 0);">
+                                                    <img src="{{ asset('us.svg') }}" alt="United States flag" class="w-16 h-16 mx-auto">
+                                                    <h3 class="mt-2 text-lg font-bold">English</h3>
+                                                </a>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
 
             {{-- Frequently asked questions --}}
-            <div class="py-12 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" id="faq">
-                <h2 class="text-3xl font-bold text-[#073260]">Preguntas más frecuentes</h2>
+            @if ($questions->count() > 0)
+                <div class="py-12 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" id="faq">
+                    <h2 class="text-3xl font-bold text-[#073260]">Preguntas más frecuentes</h2>
 
-                <div x-data="{ active: null }" class="mt-6 text-left mx-auto max-w-7xl space-y-4">
-                    @forelse ($questions as $question)
-                        <div x-data="{
-                            id: {{ $question->id }},
-                            get expanded() {
-                                return this.active === this.id
-                            },
-                            set expanded(value) {
-                                this.active = value ? this.id : null
-                            },
-                        }" role="region" class="rounded-lg bg-white border">
-                            <h2>
-                                <button
-                                    x-on:click="expanded = !expanded"
-                                    :aria-expanded="expanded"
-                                    class="flex w-full items-center justify-between px-6 py-4 text-lg text-[#073260] font-bold"
-                                >
-                                    <span>{{ $question->question }}</span>
-                                    <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
-                                    <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
-                                </button>
-                            </h2>
+                    <div x-data="{ active: null }" class="mt-6 text-left mx-auto max-w-7xl space-y-4">
+                        @forelse ($questions as $question)
+                            <div x-data="{
+                                id: {{ $question->id }},
+                                get expanded() {
+                                    return this.active === this.id
+                                },
+                                set expanded(value) {
+                                    this.active = value ? this.id : null
+                                },
+                            }" role="region" class="rounded-lg bg-white border">
+                                <h2>
+                                    <button
+                                        x-on:click="expanded = !expanded"
+                                        :aria-expanded="expanded"
+                                        class="flex w-full items-center justify-between px-6 py-4 text-lg text-[#073260] font-bold"
+                                    >
+                                        <span>{{ $question->question }}</span>
+                                        <span x-show="expanded" aria-hidden="true" class="ml-4">&minus;</span>
+                                        <span x-show="!expanded" aria-hidden="true" class="ml-4">&plus;</span>
+                                    </button>
+                                </h2>
 
-                            <div x-show="expanded" x-collapse>
-                                <div class="px-6 pb-4">{{ $question->answer }}</div>
+                                <div x-show="expanded" x-collapse>
+                                    <div class="px-6 pb-4">{{ $question->answer }}</div>
+                                </div>
                             </div>
-                        </div>
-                    @empty
+                        @empty
 
-                    @endforelse
+                        @endforelse
+                    </div>
                 </div>
-            </div>
+            @endif
 
             {{-- Owner signature --}}
             <div class="w-full bg-[#073260]" id="signature">
