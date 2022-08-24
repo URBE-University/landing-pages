@@ -14,6 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
+        @include('web.partials.clickcease')
         @include('web.nav')
 
         <div class="max-w-7xl mx-auto">
