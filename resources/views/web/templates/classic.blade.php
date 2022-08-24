@@ -18,7 +18,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-GQ9RRCYVY1');
         </script>
 
@@ -26,8 +25,8 @@
         {!! htmlScriptTagJsApi() !!}
     </head>
     <body class="bg-white">
+        @include('web.partials.clickcease')
         @include('web.nav')
-
         {{-- Header --}}
         <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="header">
             <div class="py-12 sm:hidden text-center mb-6">

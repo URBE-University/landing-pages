@@ -18,7 +18,6 @@
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-GQ9RRCYVY1');
         </script>
 
@@ -26,6 +25,7 @@
         {!! htmlScriptTagJsApi() !!}
     </head>
     <body class="bg-white">
+        @include('web.partials.clickcease')
         <nav class="max-w-7xl mx-auto border-b md:border-b-0">
             <div class="w-full flex items-center justify-between py-8 px-4 sm:px-6 lg:px-8">
                 <img src="{{ asset('urbe-logo.svg') }}" alt="" class="w-24 md:w-36">
