@@ -6,9 +6,25 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" href="{{ asset('favicon.jpg') }}" type="image/jpeg">
         <title>{{ ($title ?? '') . ' - ' . config('app.name', 'URBE University') }}</title>
-        <meta name="og:title" content="{{ $title }}">
+
+        <!-- HTML Meta Tags -->
+        <meta name="description" content="{{ $about ?? $title }}">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="{{ Request::url() }}">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ $title }}">
         <meta name="og:description" content="{{ $about ?? $title }}">
         <meta property="og:image" content="{{ asset($cover) }}">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="{{ config('app.url') }}">
+        <meta property="twitter:url" content="{{ Request::url() }}">
+        <meta name="twitter:title" content="{{ $title }}">
+        <meta name="twitter:description" content="{{ $about ?? $title }}">
+        <meta property="twitter:image" content="{{ asset($cover) }}">
+
         <!-- Styles -->
         @vite('resources/css/app.css')
 
