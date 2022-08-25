@@ -14,6 +14,9 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th scope="col" class="py-3 px-6">
+                                Created at
+                            </th>
+                            <th scope="col" class="py-3 px-6">
                                 Name
                             </th>
                             <th scope="col" class="py-3 px-6">
@@ -21,6 +24,9 @@
                             </th>
                             <th scope="col" class="py-3 px-6">
                                 Source
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Zip code
                             </th>
                             <th scope="col" class="py-3 px-6 sr-only">
                                 Actions
@@ -30,6 +36,9 @@
                     <tbody>
                         @forelse ($contacts as $contact)
                             <tr class="bg-white border-b">
+                                <td class="py-4 px-6">
+                                    {{ Carbon\Carbon::parse($contact->created_at)->format("M d, Y") }}
+                                </td>
                                 <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                                     {{ $contact->firstname . ' ' . $contact->lastname }}
                                 </td>
@@ -38,6 +47,9 @@
                                 </td>
                                 <td class="py-4 px-6">
                                     {{ $contact->lead_source }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $contact->zip }}
                                 </td>
                                 <td class="py-4 px-6">
                                     <div class="flex justify-end items-center space-x-4">
