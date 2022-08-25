@@ -6,7 +6,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" href="{{ asset('favicon.jpg') }}" type="image/jpeg">
         <title>{{ ($title ?? '') . ' - ' . config('app.name', 'URBE University') }}</title>
+        <meta name="title" content="{{ $about ?? $title }}">
         <meta name="description" content="{{ $about ?? $title }}">
+        <meta property="og:image" content="{{ asset($cover) }}">
         <!-- Styles -->
         @vite('resources/css/app.css')
 
