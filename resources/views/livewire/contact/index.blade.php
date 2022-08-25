@@ -37,7 +37,7 @@
                                     {{ $contact->email }}
                                 </td>
                                 <td class="py-4 px-6">
-                                    {{ $contact->source }}
+                                    {{ $contact->lead_source }}
                                 </td>
                                 <td class="py-4 px-6">
                                     <div class="flex justify-end items-center space-x-4">
