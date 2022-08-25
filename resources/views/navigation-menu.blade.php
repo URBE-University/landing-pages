@@ -15,6 +15,9 @@
                     <x-jet-nav-link href="{{ route('admin.page.index') }}" :active="request()->routeIs('admin.page.index')">
                         {{ __('Pages') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.contact.index') }}" :active="request()->routeIs('admin.contact.index')">
+                        {{ __('Contacts') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -139,6 +142,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('admin.page.index') }}" :active="request()->routeIs('admin.page.index')">
                 {{ __('Pages') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin.contact.index') }}" :active="request()->routeIs('admin.contact.index')">
+                {{ __('Contacts') }}
             </x-jet-responsive-nav-link>
         </div>
 

@@ -31,6 +31,8 @@ Route::middleware([
     Route::get('/app/pages/create', App\Http\Livewire\Page\Create::class)->name('admin.page.create');
     Route::get('/app/pages/{page}/edit', App\Http\Livewire\Page\Edit::class)->name('admin.page.edit');
 
+    Route::get('/app/contacts', App\Http\Livewire\Contact\Index::class)->name('admin.contact.index');
+
     Route::get('/app/pages/template', function() {
         return view('layouts.landing.template');
     })->name('admin.page.template');
