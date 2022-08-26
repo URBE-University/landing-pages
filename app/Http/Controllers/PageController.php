@@ -16,18 +16,23 @@ class PageController extends Controller
      */
     public function show($page)
     {
-        $page = Page::where('slug', $page)->where('status', 1)->firstorfail();
-        return view('web.templates.'.$page->template, [
-            'title' => $page->title,
-            'about' => $page->about,
-            'source' => $page->source,
-            'alt_phone' => $page->alt_phone,
-            'cover' => $page->cover,
-            'document_en_url' => $page->document_en_url,
-            'document_es_url' => $page->document_es_url,
-            'questions' => $page->questions,
-            'lock_docs' => $page->lock_docs,
-        ]);
+        if ($page !== 'request-information') {
+            $page = Page::where('slug', $page)->where('status', 1)->firstorfail();
+            $options = [
+                    'title' => $page->title,
+                    'about' => $page->about,
+                    'source' => $page->source,
+                    'alt_phone' => $page->alt_phone,
+                    'cover' => $page->cover,
+                    'document_en_url' => $page->document_en_url,
+                    'document_es_url' => $page->document_es_url,
+                    'questions' => $page->questions,
+                    'lock_docs' => $page->lock_docs,
+                ];
+                return view('web.templates.'.$page->template, $options);
+        } else {
+            return view('web.templates.request-information');
+        }
     }
 
     /**
@@ -95,14 +100,17 @@ class PageController extends Controller
      */
     public function formSuccess($source)
     {
-        $page = Page::where('source', $source)->where('status', 1)->firstorfail();
-
-        return view('web.success', [
-            'title' => $page->title,
-            'source' => $page->source,
-            'lock_docs' => $page->lock_docs,
-            'doc_en_url' => ($page->lock_docs === 1 && $page->document_en_url) ? $page->document_en_url : null,
-            'doc_es_url' => ($page->lock_docs === 1 && $page->document_es_url) ? $page->document_es_url : null,
-        ]);
+        if ($source === 'request-information') {
+            return redirect()->to('https://urbe.university/academics?utm_source=lp-request-informaiton');
+        } else {
+            $page = Page::where('source', $source)->where('status', 1)->firstorfail();
+            return view('web.success', [
+                'title' => $page->title,
+                'source' => $page->source,
+                'lock_docs' => $page->lock_docs,
+                'doc_en_url' => ($page->lock_docs === 1 && $page->document_en_url) ? $page->document_en_url : null,
+                'doc_es_url' => ($page->lock_docs === 1 && $page->document_es_url) ? $page->document_es_url : null,
+            ]);
+        }
     }
 }
