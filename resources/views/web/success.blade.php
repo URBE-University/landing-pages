@@ -12,9 +12,6 @@
 
         {{-- Fathom Analytics Script --}}
         <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
-
-        {{-- Recaptcha script --}}
-        {!! htmlScriptTagJsApi() !!}
     </head>
     <body class="bg-white">
         <nav class="max-w-7xl mx-auto border-b md:border-b-0">
@@ -35,23 +32,23 @@
 
         {{-- Main section --}}
         <main class="py-12 w-full">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 class="text-5xl font-extrabold text-[#073260] text-center">{{__("Thank you!")}}</h1>
+            <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center" style="background-image: url({{asset('student-confirmation-1.webp')}})">
+                <h1 class="text-5xl font-extrabold text-[#073260]">{{__("Thank you!")}}</h1>
 
                 @if ($lock_docs && ($doc_es_url || $doc_en_url))
-                    <p class="text-lg mt-8">{{ __("Thank you for reaching out! Now you can download our brochure by clicking the links below.") }}</p>
-                    <div class="mt-6 grid grid-cols-2 justify-center">
+                    <p class="text-lg mt-8 w-full sm:w-1/2">{{ __("Thank you for reaching out! Now you can download our brochure by clicking the links below.") }}</p>
+                    <div class="mt-6 w-full sm:w-1/2 flex items-center space-x-6">
                         @if ($doc_es_url)
-                            <div class="col-span-2 md:col-span-1 text-center">
-                                <a href="{{ ($doc_es_url) ? asset($doc_es_url) : '' }}" class="inline-block mt-4 text-sm uppercase font-medium text-[#073260] hover:bg-sky-100 rounded-lg p-4" onclick="fathom.trackGoal('9FXEDZDZ', 0);">
+                            <div class="w-full md:w-auto text-center">
+                                <a href="{{ ($doc_es_url) ? asset($doc_es_url) : '' }}" class="inline-block mt-4 text-sm uppercase font-medium text-[#073260] bg-white/80 backdrop-blur hover:bg-white rounded-lg p-4" onclick="fathom.trackGoal('9FXEDZDZ', 0);">
                                     <img src="{{ asset('es.svg') }}" alt="Spain flag" class="w-24 h-24 mx-auto">
                                     <div class="mt-4">Descargar documento</div>
                                 </a>
                             </div>
                         @endif
                         @if ($doc_en_url)
-                            <div class="col-span-2 md:col-span-1 text-center">
-                                <a href="{{ ($doc_en_url) ? asset($doc_en_url) : '' }}" class="inline-block mt-4 text-sm uppercase font-medium text-[#073260] hover:bg-sky-100 rounded-lg p-4" onclick="fathom.trackGoal('EFWIUGQZ', 0);">
+                            <div class="w-full md:w-auto text-center">
+                                <a href="{{ ($doc_en_url) ? asset($doc_en_url) : '' }}" class="inline-block mt-4 text-sm uppercase font-medium text-[#073260] bg-white/80 backdrop-blur hover:bg-white rounded-lg p-4" onclick="fathom.trackGoal('EFWIUGQZ', 0);">
                                     <img src="{{ asset('us.svg') }}" alt="USA flag" class="w-24 h-24 mx-auto">
                                     <div class="mt-4">Download Brochure</div>
                                 </a>
@@ -59,7 +56,7 @@
                         @endif
                     </div>
                 @else
-                    <p class="text-lg mt-8">{{__("We have received your inquiry, and one of our admissions representatives will contact you shortly. In the meantime, you can learn more about our other programs, and events that are happening right now at URBE. Click one of the links below to continue.")}}</p>
+                    <p class="text-lg mt-8 w-full sm:w-1/2">{{__("We have received your inquiry, and one of our admissions representatives will contact you shortly. In the meantime, you can learn more about our other programs, and events that are happening right now at URBE. Click one of the links below to continue.")}}</p>
                 @endif
 
                 {{-- External Links --}}
@@ -91,11 +88,6 @@
                 </ul>
             </div>
         </main>
-
-        {{-- Footer --}}
-        <div class="absolute bottom-0 w-full">
-            <div class="py-4 text-center text-sm font-semibold text-slate-600">© {{ date('Y') }} URBE University · All rights reserved</div>
-        </div>
 
         {{-- Scripts --}}
         @vite('resources/js/app.js')
