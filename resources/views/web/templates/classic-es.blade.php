@@ -85,6 +85,7 @@
                             <form action="/submit" method="post" class="w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
                                 @csrf
                                 <input type="hidden" name="source" value="{{$source ?? ''}}">
+                                <input type="hidden" name="program_of_interest" value="{{ $title }}">
 
                                 <input  type="text" class="form-input" name="firstname"  placeholder="{{ __("Nombre") }} *" autofocus>
                                 @if ($errors->has('firstname'))
@@ -265,6 +266,7 @@
                     <form action="/submit" method="post" class="mt-6 w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
                         @csrf
                         <input type="hidden" name="source" value="{{$source ?? ''}}">
+                        <input type="hidden" name="program_of_interest" value="{{ $title }}">
 
                         <input  type="text" class="form-input" name="firstname"  placeholder="{{ __("Nombre") }} *" autofocus>
                         @if ($errors->has('firstname'))

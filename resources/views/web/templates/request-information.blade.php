@@ -92,6 +92,14 @@
 
                                 <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
 
+                                <select name="program_of_interest" class="form-input text-slate-500">
+                                    <option value="" class="text-slate-500">Interested in one of our programs?</option>
+                                    <option value="MBA">Master in Business Administration</option>
+                                    <option value="MIDT">Master in Instructional Design & Technology</option>
+                                    <option value="BBA">Bachelor in Business Administration</option>
+                                    <option value="BMCM">Bachelor in Mass Communication and Marketing</option>
+                                </select>
+
                                 <div class="mt-6">
                                     <button class="form-button w-full" type="submit">
                                         {{__("Contact me!")}}
@@ -395,6 +403,14 @@
                         @endif
 
                         <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
+
+                        <select name="program_of_interest" class="form-input text-slate-500">
+                            <option value="" class="text-slate-500">Interested in one of our programs?</option>
+                            <option value="MBA">Master in Business Administration</option>
+                            <option value="MIDT">Master in Instructional Design & Technology</option>
+                            <option value="BBA">Bachelor in Business Administration</option>
+                            <option value="BMCM">Bachelor in Mass Communication and Marketing</option>
+                        </select>
 
                         <div class="mt-8">
                             <button class="form-button w-full" type="submit">

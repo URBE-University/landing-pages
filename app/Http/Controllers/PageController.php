@@ -55,6 +55,7 @@ class PageController extends Controller
             'lastname' => $request['lastname'],
             'phone' => $request['phone'],
             'lead_source' => $request['source'],
+            'program_of_interest' => $request['program_of_interest'] ?? $request['source'],
             'zip' => $request['zip']
         ]);
 
@@ -80,7 +81,8 @@ class PageController extends Controller
                     'lastname' => $request['lastname'],
                     'phone' => $request['phone'],
                     'lead_source' => $request['source'],
-                    'zip' => $request['zip']
+                    'zip' => $request['zip'],
+                    'program_of_interest' => $request['program_of_interest'],
                 ]);
                 $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
             } catch (\Throwable $th) {
