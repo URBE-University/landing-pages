@@ -82,7 +82,7 @@
                         <div class="p-8 bg-white/90 xl:w-5/6 backdrop-blur-sm rounded-lg shadow-lg">
                             <h3 class="text-xl font-bold text-[#073260]">{{ __("Descubre cómo URBE puede ayudarte a dar forma a tu futuro.") }}</h3>
                             <p class="form-subtitle">{{__("Llena este formulario, y pronto te llamaremos con todas las respuestas a tus preguntas.")}}</p>
-                            <form action="/submit" method="post" class="w-full">
+                            <form action="/submit" method="post" class="w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
                                 @csrf
                                 <input type="hidden" name="source" value="{{$source ?? ''}}">
 
@@ -109,7 +109,7 @@
                                 <input type="number" class="form-input" name="zip"  placeholder="{{ __("Código postal") }}">
 
                                 <div class="mt-6">
-                                    <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
+                                    <button class="form-button w-full" type="submit">
                                         @if ($lock_docs)
                                             {{__("Descargar folleto")}}
                                         @else
@@ -262,7 +262,7 @@
                     </div>
 
                     {{-- Mobile form --}}
-                    <form action="/submit" method="post" class="mt-6 w-full">
+                    <form action="/submit" method="post" class="mt-6 w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
                         @csrf
                         <input type="hidden" name="source" value="{{$source ?? ''}}">
 
@@ -289,7 +289,7 @@
                         <input type="number" class="form-input" name="zip"  placeholder="{{ __("Código postal") }}">
 
                         <div class="mt-8">
-                            <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
+                            <button class="form-button w-full" type="submit">
                                 @if ($lock_docs)
                                     {{__("Descargar folleto")}}
                                 @else

@@ -66,7 +66,7 @@
                         <div class="p-8 bg-white/90 xl:w-5/6 backdrop-blur-sm rounded-lg shadow-lg">
                             <h3 class="text-xl font-bold text-[#073260]">{{ __("Find out how URBE can help you shape up your future.") }}</h3>
                             <p class="form-subtitle">{{__("Fill out this form and we will call you soon with all the answers to your questions.")}}</p>
-                            <form action="/submit" method="post" class="w-full">
+                            <form action="/submit" method="post" class="w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
                                 @csrf
                                 <input type="hidden" name="source" value="{{$source ?? ''}}">
 
@@ -93,7 +93,7 @@
                                 <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
 
                                 <div class="mt-6">
-                                    <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
+                                    <button class="form-button w-full" type="submit">
                                         @if ($lock_docs)
                                             {{__("Download brochure!")}}
                                         @else
@@ -244,7 +244,7 @@
                     </div>
 
                     {{-- Mobile form --}}
-                    <form action="/submit" method="post" class="mt-6 w-full">
+                    <form action="/submit" method="post" class="mt-6 w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
                         @csrf
                         <input type="hidden" name="source" value="{{$source ?? ''}}">
 
@@ -271,7 +271,7 @@
                         <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
 
                         <div class="mt-8">
-                            <button class="form-button w-full" type="submit" onclick="fathom.trackGoal('PW9XZZCK', 0);">
+                            <button class="form-button w-full" type="submit">
                                 @if ($lock_docs)
                                     {{__("Download brochure!")}}
                                 @else
