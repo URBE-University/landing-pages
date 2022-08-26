@@ -4,7 +4,9 @@ namespace App\Http\Livewire\Contact;
 
 use App\Models\Contact;
 use Livewire\Component;
+use App\Mail\ContactToHubspotFails;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class Sync extends Component
 {
@@ -43,6 +45,8 @@ class Sync extends Component
                     $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
                 } catch (\Throwable $th) {
                     Log::error($th);
+                    // Add Email notification when it fails to send to Hubspot
+                    Mail::to(config('urbe.support.email'))->send( new ContactToHubspotFails() );
                 }
             }
         }

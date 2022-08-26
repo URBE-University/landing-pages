@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Mail\ContactToHubspotFails;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -78,6 +80,8 @@ class PageController extends Controller
                 $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
             } catch (\Throwable $th) {
                 Log::error($th);
+                // Add Email notification when it fails to send to Hubspot
+                Mail::to(config('urbe.support.email'))->send( new ContactToHubspotFails() );
             }
         }
 
