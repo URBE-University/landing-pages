@@ -21,5 +21,6 @@ class Delete extends Component
     public function trash()
     {
         $this->contact->delete();
+        return redirect()->route('admin.contact.index');
     }
 }

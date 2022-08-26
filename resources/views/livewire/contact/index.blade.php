@@ -53,7 +53,7 @@
                                 </td>
                                 <td class="py-4 px-6">
                                     <div class="flex justify-end items-center space-x-4">
-                                        @livewire('contact.delete', ['contact', $contact->id], key('delete-' . $contact->id))
+                                        @livewire('contact.delete', ['contact'=> $contact->id], key('delete-' . $contact->id))
                                     </div>
                                 </td>
                             </tr>
