@@ -37,7 +37,7 @@ class Sync extends Component
                         'firstname' => $contact->firstname,
                         'lastname' => $contact->lastname,
                         'phone' => $contact->phone,
-                        'lead_source' => $contact->source,
+                        'lead_source' => $contact->lead_source,
                         'zip' => $contact->zip
                     ]);
                     $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
