@@ -1,9 +1,12 @@
 <div>
     <div class="bg-white shadow">
         <div class="max-w-5xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Contacts') }}
-            </h2>
+            <div class="flex items-center justify-between">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('Pages') }}
+                </h2>
+                @livewire('contact.sync')
+            </div>
         </div>
     </div>
 
