@@ -54,35 +54,22 @@ class PageController extends Controller
         ]);
 
         $hubSpot = \HubSpot\Factory::createWithAccessToken( config('urbe.hubspot.token') );
-        // Search contact to avoid duplicates
-        $filter = new \HubSpot\Client\Crm\Contacts\Model\Filter();
-        $filter->setOperator('EQ')
-            ->setPropertyName('email')
-            ->setValue($request['email']);
-        $filterGroup = new \HubSpot\Client\Crm\Contacts\Model\FilterGroup();
-        $filterGroup->setFilters([$filter]);
-        $searchRequest = new \HubSpot\Client\Crm\Contacts\Model\PublicObjectSearchRequest();
-        $searchRequest->setFilterGroups([$filterGroup]);
-        $contactsPage = $hubSpot->crm()->contacts()->searchApi()->doSearch($searchRequest);
 
-        // Create lead if doesn't already exist in database
-        if ((integer) $contactsPage->getTotal() < 1) {
-            try {
-                $contactInput = new \HubSpot\Client\Crm\Contacts\Model\SimplePublicObjectInput();
-                $contactInput->setProperties([
-                    'email' => $request['email'],
-                    'firstname' => $request['firstname'],
-                    'lastname' => $request['lastname'],
-                    'phone' => $request['phone'],
-                    'lead_source' => $request['source'],
-                    'zip' => $request['zip']
-                ]);
-                $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
-            } catch (\Throwable $th) {
-                Log::error($th);
-                // Add Email notification when it fails to send to Hubspot
-                Mail::to(config('urbe.support.email'))->send( new ContactToHubspotFails() );
-            }
+        try {
+            $contactInput = new \HubSpot\Client\Crm\Contacts\Model\SimplePublicObjectInput();
+            $contactInput->setProperties([
+                'email' => $request['email'],
+                'firstname' => $request['firstname'],
+                'lastname' => $request['lastname'],
+                'phone' => $request['phone'],
+                'lead_source' => $request['source'],
+                'zip' => $request['zip']
+            ]);
+            $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
+        } catch (\Throwable $th) {
+            Log::error($th);
+            // Add Email notification when it fails to send to Hubspot
+            Mail::to(config('urbe.support.email'))->send( new ContactToHubspotFails() );
         }
 
         return redirect()->route('form.success', [
