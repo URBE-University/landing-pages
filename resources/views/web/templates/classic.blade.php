@@ -244,7 +244,7 @@
                     </div>
 
                     {{-- Mobile form --}}
-                    <form action="/submit" method="post" class="mt-6 w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
+                    <form action="/submit" method="post" class="mt-6 w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);" >
                         @csrf
                         <input type="hidden" name="source" value="{{$source ?? ''}}">
 
