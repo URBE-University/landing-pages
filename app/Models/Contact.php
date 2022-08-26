@@ -15,5 +15,6 @@ class Contact extends Model
         'lastname',
         'phone',
         'lead_source',
+        'zip',
     ];
 }

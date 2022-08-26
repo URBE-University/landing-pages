@@ -47,7 +47,8 @@ class PageController extends Controller
             'firstname' => $request['firstname'],
             'lastname' => $request['lastname'],
             'phone' => $request['phone'],
-            'lead_source' => $request['source']
+            'lead_source' => $request['source'],
+            'zip' => $request['zip']
         ]);
 
         $hubSpot = \HubSpot\Factory::createWithAccessToken( config('urbe.hubspot.token') );
@@ -71,7 +72,8 @@ class PageController extends Controller
                     'firstname' => $request['firstname'],
                     'lastname' => $request['lastname'],
                     'phone' => $request['phone'],
-                    'lead_source' => $request['source']
+                    'lead_source' => $request['source'],
+                    'zip' => $request['zip']
                 ]);
                 $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
             } catch (\Throwable $th) {
