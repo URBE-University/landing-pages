@@ -32,11 +32,11 @@
 
         {{-- Main section --}}
         <main class="py-12 w-full">
-            <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center" style="background-image: url({{asset('student-confirmation-1.webp')}})">
+            <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center rounded-lg shadow-lg" style="background-image: url({{asset('student-confirmation-1.webp')}})">
                 <h1 class="text-5xl font-extrabold text-[#073260]">{{__("Thank you!")}}</h1>
 
                 @if ($lock_docs && ($doc_es_url || $doc_en_url))
-                    <p class="text-lg mt-8 w-full sm:w-1/2">{{ __("Thank you for reaching out! Now you can download our brochure by clicking the links below.") }}</p>
+                    <p class="text-lg mt-8 w-full md:w-1/2 bg-white/70 md:bg-none backdrop-blur-sm md:backdrop-blur-none p-4 rounded-lg">{{ __("Thank you for reaching out! Now you can download our brochure by clicking the links below.") }}</p>
                     <div class="mt-6 w-full sm:w-1/2 flex items-center space-x-6">
                         @if ($doc_es_url)
                             <div class="w-full md:w-auto text-center">
@@ -56,33 +56,33 @@
                         @endif
                     </div>
                 @else
-                    <p class="text-lg mt-8 w-full sm:w-1/2">{{__("We have received your inquiry, and one of our admissions representatives will contact you shortly. In the meantime, you can learn more about our other programs, and events that are happening right now at URBE. Click one of the links below to continue.")}}</p>
+                    <p class="text-lg mt-8 w-full md:w-1/2 bg-white/70 md:bg-none backdrop-blur-sm md:backdrop-blur-none p-4 rounded-lg">{{__("We have received your inquiry, and one of our admissions representatives will contact you shortly. In the meantime, you can learn more about our other programs, and events that are happening right now at URBE. Click one of the links below to continue.")}}</p>
                 @endif
 
                 {{-- External Links --}}
                 <ul class="mt-12 space-y-3">
                     <li>
-                        <a href="https://www.urbe.university/academics?utm_source={{$source}}" target="_blank" class="flex items-center space-x-2 text-[#0ea5e9] hover:text-[#073260] hover:translate-x-1 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
+                        <a href="https://www.urbe.university/academics?utm_source={{$source}}" target="_blank" class="flex items-center space-x-2 text-[black] group transition-all">
                             <span>Academic programs</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://library.urbe.university?utm_source={{$source}}" target="_blank" class="flex items-center space-x-2 text-[#0ea5e9] hover:text-[#073260] hover:translate-x-1 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
+                        <a href="https://library.urbe.university?utm_source={{$source}}" target="_blank" class="flex items-center space-x-2 text-[black] group transition-all">
                             <span>Library services</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.urbe.university/events?utm_source={{$source}}" target="_blank" class="flex items-center space-x-2 text-[#0ea5e9] hover:text-[#073260] hover:translate-x-1 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <a href="https://www.urbe.university/events?utm_source={{$source}}" target="_blank" class="flex items-center space-x-2 text-[black] group transition-all">
+                            <span>Campus Events</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
-                            <span>Campus Events</span>
                         </a>
                     </li>
                 </ul>
