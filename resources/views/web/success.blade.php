@@ -33,7 +33,7 @@
         {{-- Main section --}}
         <main class="py-12 w-full">
             <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 bg-cover bg-center rounded-lg shadow-lg" style="background-image: url({{asset('student-confirmation-1.webp')}})">
-                <h1 class="text-5xl font-extrabold text-[#073260]">{{__("Thank you!")}}</h1>
+                <h1 class="text-5xl font-extrabold text-[#073260]">{{__("Thank you!")}} 🎉</h1>
 
                 @if ($lock_docs && ($doc_es_url || $doc_en_url))
                     <p class="text-lg mt-8 w-full md:w-1/2 bg-white/70 md:bg-none backdrop-blur-sm md:backdrop-blur-none p-4 rounded-lg">{{ __("Thank you for reaching out! Now you can download our brochure by clicking the links below.") }}</p>
