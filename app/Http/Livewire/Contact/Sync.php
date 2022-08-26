@@ -17,7 +17,6 @@ class Sync extends Component
     {
         $hubSpot = \HubSpot\Factory::createWithAccessToken( config('urbe.hubspot.token') );
         foreach (Contact::all() as $contact) {
-            dump($contact->lead_source);
             // Search by email to avoid duplicates
             $filter = new \HubSpot\Client\Crm\Contacts\Model\Filter();
             $filter->setOperator('EQ')
