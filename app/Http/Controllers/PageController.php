@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactToDBFailed;
 use App\Models\Page;
 use App\Models\Contact;
 use Illuminate\Http\Request;
@@ -61,6 +62,16 @@ class PageController extends Controller
             ]);
         } catch (\Throwable $th) {
             Log::error($th);
+            Mail::to(config('urbe.support.email'))->send(
+                new ContactToDBFailed(
+                    $request['email'],
+                    $request['firstname'] . ' ' . $request['lastname'],
+                    $request['phone'],
+                    $request['source'],
+                    $request['program_of_interest'] ?? $request['source'],
+                    $request['zip']
+                )
+            );
         }
 
         $hubSpot = \HubSpot\Factory::createWithAccessToken( config('urbe.hubspot.token') );
