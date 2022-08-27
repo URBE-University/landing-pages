@@ -102,7 +102,7 @@ class PageController extends Controller
      */
     public function formSuccess($source)
     {
-        if ($source === 'request-information') {
+        if ($source === 'lp-request-information') {
             return redirect()->to('https://urbe.university/academics?utm_source=lp-request-informaiton');
         } else {
             $page = Page::where('source', $source)->where('status', 1)->firstorfail();
