@@ -11,7 +11,7 @@
     </div>
     <div class="py-12">
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <div class="overflow-x-auto relative shadow-md sm:rounded-md">
                 <table class="w-full text-sm text-left text-gray-500">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>

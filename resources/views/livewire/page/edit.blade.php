@@ -2,7 +2,7 @@
     <div class="py-6">
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <h3 class="text-2xl font-bold">Page information</h3>
-            <div class="mt-2 bg-white rounded-lg p-8 shadow">
+            <div class="mt-2 bg-white rounded-md p-8 shadow">
                 <div>
                     <x-jet-label for="template" value="Select a template"/>
                     <select id="template" wire:model.defer="template" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block w-full mt-1">
@@ -39,17 +39,17 @@
                 </div>
                 <div class="mt-6">
                     <x-jet-label for="cover" value="Cover image"/>
-                    <input type="file" id="cover" wire:model.defer="cover" accept=".webp,.png,.jpg,.jpeg" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 mt-1 outline-none border-none">
+                    <input type="file" id="cover" wire:model.defer="cover" accept=".webp,.png,.jpg,.jpeg" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 mt-1 outline-none border-none">
                     <x-jet-input-error for="cover" class="mt-1"/>
                 </div>
                 <div class="mt-6">
                     <x-jet-label for="document_en_url" value="PDF Brochure - English"/>
-                    <input type="file" id="document_en_url" wire:model.defer="document_en_url" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 mt-1 outline-none border-none">
+                    <input type="file" id="document_en_url" wire:model.defer="document_en_url" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 mt-1 outline-none border-none">
                     <x-jet-input-error for="document_en_url" class="mt-1"/>
                 </div>
                 <div class="mt-6">
                     <x-jet-label for="document_es_url" value="PDF Brochure - Spanish"/>
-                    <input type="file" id="document_es_url" wire:model.defer="document_es_url" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 mt-1 outline-none border-none">
+                    <input type="file" id="document_es_url" wire:model.defer="document_es_url" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 mt-1 outline-none border-none">
                     <x-jet-input-error for="document_es_url" class="mt-1"/>
                 </div>
 
@@ -87,7 +87,7 @@
                 @livewire('question.create', ['page' => $page->id])
             </div>
 
-            <div class="mt-2 bg-white rounded-lg p-8 shadow">
+            <div class="mt-2 bg-white rounded-md p-8 shadow">
                 @livewire('question.index', ['page' => $page->id])
             </div>
 

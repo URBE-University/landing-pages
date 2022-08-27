@@ -17,11 +17,11 @@
     }
 
     .form-input {
-        @apply mt-4 px-4 py-3 w-full border-gray-300 rounded-lg focus:border-[#10a2da]/90 focus:ring focus:ring-[#5fcbf4]/60 shadow-sm;
+        @apply mt-4 px-4 py-3 w-full border-gray-300 rounded-md focus:border-[#10a2da]/90 focus:ring focus:ring-[#5fcbf4]/60 shadow-sm;
     }
 
     .form-button {
-        @apply px-5 py-3 rounded-lg bg-[#10a2da] hover:bg-[#073260]/90 text-white text-sm font-semibold uppercase tracking-wide transition-all;
+        @apply px-5 py-3 rounded-md bg-[#10a2da] hover:bg-[#073260]/90 text-white text-sm font-semibold uppercase tracking-wide transition-all;
     }
 
     .form-link {

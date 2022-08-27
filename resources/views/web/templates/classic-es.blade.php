@@ -64,12 +64,12 @@
         <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="header">
             <div class="py-12 sm:hidden text-center mb-6">
                 <h1 class="text-3xl text-center font-extrabold text-[#073260]">{{$title ?? ''}}</h1>
-                <a href="#cta" class="px-5 py-3 rounded-lg bg-[#10a2da] hover:bg-[#073260]/90 text-white text-sm font-semibold uppercase tracking-wide transition-all mt-6 inline-block">{{__("Más información")}}</a>
+                <a href="#cta" class="px-5 py-3 rounded-md bg-[#10a2da] hover:bg-[#073260]/90 text-white text-sm font-semibold uppercase tracking-wide transition-all mt-6 inline-block">{{__("Más información")}}</a>
             </div>
             <div class="w-full aspect-video lg:aspect-auto flex lg:inline-block sm:h-full bg-cover bg-right bg-no-repeat" style="background-image: url({{ ($cover) ? asset($cover) : '' }})">
                 {{-- Tablet version --}}
                 <div class="hidden sm:flex items-center justify-start lg:hidden px-8">
-                    <div class="w-1/2 p-8 bg-white/80 backdrop-blur-sm rounded-lg dropshadow-lg">
+                    <div class="w-1/2 p-8 bg-white/80 backdrop-blur-sm rounded-md dropshadow-lg">
                         <h1 class="text-4xl font-extrabold text-[#073260]">{{$title ?? ''}}</h1>
                         <div class="block mt-6">
                             <a href="#cta" class="form-button inline-block">{{__("Más información")}}</a>
@@ -79,7 +79,7 @@
                 {{-- Desktop version --}}
                 <div class="hidden lg:grid grid-cols-2 gap-8">
                     <div class="p-8 lg:p-12 col-span-1">
-                        <div class="p-8 bg-white/90 xl:w-5/6 backdrop-blur-sm rounded-lg shadow-lg">
+                        <div class="p-8 bg-white/90 xl:w-5/6 backdrop-blur-sm rounded-md shadow-lg">
                             <h3 class="text-xl font-bold text-[#073260]">{{ __("Descubre cómo URBE puede ayudarte a dar forma a tu futuro.") }}</h3>
                             <p class="form-subtitle">{{__("Llena este formulario, y pronto te llamaremos con todas las respuestas a tus preguntas.")}}</p>
                             <form action="/submit" method="post" class="w-full" onsubmit="fathom.trackGoal('PW9XZZCK', 0);">
@@ -204,7 +204,7 @@
                                 set expanded(value) {
                                     this.active = value ? this.id : null
                                 },
-                            }" role="region" class="rounded-lg bg-white border">
+                            }" role="region" class="rounded-md bg-white border">
                                 <h2>
                                     <button
                                         x-on:click="expanded = !expanded"
@@ -251,7 +251,7 @@
                     <h2 class="text-center text-3xl font-bold text-[#073260]">Descubre cómo URBE puede ayudarte a dar forma a tu futuro.</h2>
                     <p class="text-lg text-gray-800/95 font-medium mt-4">Complete el formulario en esta página con su información, y uno de nuestros representantes de Admisiones se comunicará con usted en unos minutos.</p>
                     <div class="mt-8">
-                        <a href="#header" class="px-5 py-3 rounded-lg bg-[#10a2da] hover:bg-[#073260]/90 text-white text-sm font-semibold uppercase tracking-wide transition-all">{{ __("Llévame al formulario") }}</a>
+                        <a href="#header" class="px-5 py-3 rounded-md bg-[#10a2da] hover:bg-[#073260]/90 text-white text-sm font-semibold uppercase tracking-wide transition-all">{{ __("Llévame al formulario") }}</a>
                     </div>
                 </div>
 

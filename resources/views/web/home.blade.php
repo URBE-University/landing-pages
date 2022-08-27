@@ -26,7 +26,7 @@
                 <div class="py-12 grid grid-cols-3 gap-8">
                     @forelse (\App\Models\Page::where('status', 1)->get() as $page)
                         <div class="col-span-3 md:col-span-1">
-                            <div class="w-full bg-slate-50 rounded-lg shadow">
+                            <div class="w-full bg-slate-50 rounded-md shadow">
                                 <img src="{{ asset($page->cover) }}" alt="" class="w-full aspect-video object-cover object-center rounded-t-lg">
                                 <div class="p-4 text-center">
                                     <p class="text-lg font-bold text-[#073260]">{{ $page->title }}</p>
