@@ -41,7 +41,8 @@ class Sync extends Component
                         'phone' => $contact->phone,
                         'lead_source' => $contact->lead_source,
                         'program_of_interest' => $contact->program_of_interest ?? $contact->source,
-                        'zip' => $contact->zip
+                        'zip' => $contact->zip,
+                        'hs_lead_status' => 'NEW'
                     ]);
                     $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
                 } catch (\Throwable $th) {

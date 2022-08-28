@@ -98,6 +98,7 @@ class PageController extends Controller
                     'lead_source' => $request['source'],
                     'zip' => $request['zip'],
                     'program_of_interest' => $request['program_of_interest'],
+                    'hs_lead_status' => 'NEW',
                 ]);
                 $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
             } catch (\Throwable $th) {
