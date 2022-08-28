@@ -107,7 +107,7 @@
                                     <p class="text-xs text-red-600 mt-1">{{ __("Por favor, escriba su Teléfono.") }}</p>
                                 @endif
 
-                                <input type="number" class="form-input" name="zip"  placeholder="{{ __("Código postal") }}">
+                                <input type="number" minlength="5" maxlength="5" class="form-input" name="zip"  placeholder="{{ __("Código postal") }}">
 
                                 <div class="mt-6">
                                     <button class="form-button w-full" type="submit">
@@ -288,7 +288,7 @@
                             <p class="text-xs text-red-600 mt-1">{{ __("Por favor, escriba su Teléfono.") }}</p>
                         @endif
 
-                        <input type="number" class="form-input" name="zip"  placeholder="{{ __("Código postal") }}">
+                        <input type="number" minlength="5" maxlength="5" class="form-input" name="zip"  placeholder="{{ __("Código postal") }}">
 
                         <div class="mt-8">
                             <button class="form-button w-full" type="submit">

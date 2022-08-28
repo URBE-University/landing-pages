@@ -90,7 +90,7 @@
                                     <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Phone") }}</p>
                                 @endif
 
-                                <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
+                                <input type="number" minlength="5" maxlength="5" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
 
                                 <select name="program_of_interest" class="form-input text-slate-500">
                                     <option value="" class="text-slate-500">Interested in one of our programs?</option>
@@ -402,7 +402,7 @@
                             <p class="text-xs text-red-600 mt-1">{{ __("Please enter your Phone") }}</p>
                         @endif
 
-                        <input type="number" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
+                        <input type="number" minlength="5" maxlength="5" class="form-input" name="zip"  placeholder="{{ __("Area code / Zip") }}">
 
                         <select name="program_of_interest" class="form-input text-slate-500">
                             <option value="" class="text-slate-500">Interested in one of our programs?</option>
