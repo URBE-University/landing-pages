@@ -12,6 +12,8 @@
 
         {{-- Fathom Analytics Script --}}
         <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
+        {{-- Google Analytics --}}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ9RRCYVY1"></script>
     </head>
     <body class="bg-white">
         <nav class="max-w-7xl mx-auto border-b md:border-b-0">
