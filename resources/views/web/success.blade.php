@@ -21,7 +21,7 @@
             gtag('config', 'G-GQ9RRCYVY1');
         </script>
     </head>
-    <body class="bg-white">
+    <body class="bg-white" onload="fathom.trackGoal('PW9XZZCK', 0);">
         <nav class="max-w-7xl mx-auto border-b md:border-b-0">
             <div class="w-full flex items-center justify-between py-8 px-4 sm:px-6 lg:px-8">
                 <img src="{{ asset('urbe-logo.svg') }}" alt="" class="w-24 md:w-36">
