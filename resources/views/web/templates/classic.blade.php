@@ -27,16 +27,18 @@
         <!-- Styles -->
         @vite('resources/css/app.css')
 
-        {{-- Fathom Analytics Script --}}
-        <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
-        {{-- Google Analytics --}}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ9RRCYVY1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-GQ9RRCYVY1');
-        </script>
+        @production
+            {{-- Fathom Analytics Script --}}
+            <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
+            {{-- Google Analytics --}}
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ9RRCYVY1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-GQ9RRCYVY1');
+            </script>
+        @endproduction
 
         {{-- Recaptcha script --}}
         {!! htmlScriptTagJsApi() !!}

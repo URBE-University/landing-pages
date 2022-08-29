@@ -10,18 +10,24 @@
         <!-- Styles -->
         @vite('resources/css/app.css')
 
-        {{-- Fathom Analytics Script --}}
-        <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
-        {{-- Google Analytics --}}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ9RRCYVY1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-GQ9RRCYVY1');
-        </script>
+        @production
+            {{-- Fathom Analytics Script --}}
+            <script src="https://cdn.usefathom.com/script.js" data-site="DFMPFROV" defer></script>
+            {{-- Google Analytics --}}
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ9RRCYVY1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-GQ9RRCYVY1');
+            </script>
+        @endproduction
     </head>
-    <body class="bg-white" onload="fathom.trackGoal('PW9XZZCK', 0);">
+    <body class="bg-white"
+        @production
+            onload="fathom.trackGoal('PW9XZZCK', 0);"
+        @endproduction
+    >
         <nav class="max-w-7xl mx-auto border-b md:border-b-0">
             <div class="w-full flex items-center justify-between py-8 px-4 sm:px-6 lg:px-8">
                 <img src="{{ asset('urbe-logo.svg') }}" alt="" class="w-24 md:w-36">
