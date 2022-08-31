@@ -5,4 +5,7 @@
         </svg>
         <span class="ml-2">Sync with Hubspot</span>
     </x-jet-button>
+    <div class="" wire:loading>
+        Sync operation in process...
+    </div>
 </div>

@@ -51,11 +51,12 @@ class Sync extends Component
                     Mail::to(config('urbe.support.email'))->send( new ContactToHubspotFails() );
                 }
             }
-            // Hubspot Search API only supports 4 requests per second
-            // So, we sleep every .25 seconds to prevent the sync from failing.
-            sleep(.5);
+            // Hubspot Search API only supports 4 requests per second, but fails anyways.
+            // So, we sleep every 1 second to prevent the sync from failing.
+            sleep(1);
         }
-
+        session()->flash('flash.banner', 'Your contacts have been syncronized with Hubspot.');
+        session()->flash('flash.bannerStyle', 'success');
         return redirect()->route('admin.contact.index');
     }
 }
