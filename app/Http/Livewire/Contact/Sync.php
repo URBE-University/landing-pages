@@ -51,6 +51,9 @@ class Sync extends Component
                     Mail::to(config('urbe.support.email'))->send( new ContactToHubspotFails() );
                 }
             }
+            // Hubspot Search API only supports 4 requests per second
+            // So, we sleep every .25 seconds to prevent the sync from failing.
+            sleep(0.25);
         }
 
         return redirect()->route('admin.contact.index');
