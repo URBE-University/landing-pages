@@ -13,7 +13,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.contact.index', [
-            'contacts' => Contact::orderBy('created_at', 'desc')->paginate(20),
+            'contacts' => Contact::orderBy('created_at', 'desc')->paginate(10),
         ]);
     }
 }
