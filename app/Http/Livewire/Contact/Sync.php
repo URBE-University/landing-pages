@@ -53,7 +53,7 @@ class Sync extends Component
             }
             // Hubspot Search API only supports 4 requests per second
             // So, we sleep every .25 seconds to prevent the sync from failing.
-            sleep(0.25);
+            sleep(1);
         }
 
         return redirect()->route('admin.contact.index');
