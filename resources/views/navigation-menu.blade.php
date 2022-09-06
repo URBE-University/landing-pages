@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('admin.contact.index') }}" :active="request()->routeIs('admin.contact.index')">
                         {{ __('Contacts') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="/log-viewer" :active="request()->routeIs('blv.index')">
+                        {{ __('Log Viewer') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -145,6 +148,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('admin.contact.index') }}" :active="request()->routeIs('admin.contact.index')">
                 {{ __('Contacts') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="/log-viewer" :active="request()->routeIs('blv.index')">
+                {{ __('Log Viewer') }}
             </x-jet-responsive-nav-link>
         </div>
 
