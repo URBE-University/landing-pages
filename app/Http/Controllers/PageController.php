@@ -52,15 +52,17 @@ class PageController extends Controller
 
         // Create the contact on the database
         try {
-            Contact::create([
-                'email' => $request['email'],
-                'firstname' => $request['firstname'],
-                'lastname' => $request['lastname'],
-                'phone' => $request['phone'],
-                'lead_source' => $request['source'],
-                'program_of_interest' => $request['program_of_interest'] ?? $request['source'],
-                'zip' => $request['zip']
-            ]);
+            Contact::firstOrCreate(
+                [ 'email' => $request['email'] ],
+                [
+                    'firstname' => $request['firstname'],
+                    'lastname' => $request['lastname'],
+                    'phone' => $request['phone'],
+                    'lead_source' => $request['source'],
+                    'program_of_interest' => $request['program_of_interest'] ?? $request['source'],
+                    'zip' => $request['zip']
+                ]
+            );
         } catch (\Throwable $th) {
             Log::error($th);
             Mail::to(config('urbe.support.email'))->send(
