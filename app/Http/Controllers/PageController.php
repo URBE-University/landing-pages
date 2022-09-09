@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactToDBFailed;
 use App\Models\Page;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Mail\ContactToDBFailed;
 use App\Mail\ContactToHubspotFails;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\NotifyMarketingOfNewLead;
 
 class PageController extends Controller
 {
@@ -102,6 +103,14 @@ class PageController extends Controller
                     'hs_analytics_source' => 'PAID_SEARCH'
                 ]);
                 $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
+                Mail::to(config('urbe.marketing.email'))->send( new NotifyMarketingOfNewLead(
+                    $request['firstname'],
+                    $request['lastname'],
+                    $request['phone'],
+                    $request['email'],
+                    $request['zip'],
+                    $request['source']
+                ) );
             } catch (\Throwable $th) {
                 Log::error($th);
                 // Add Email notification when it fails to send to Hubspot
