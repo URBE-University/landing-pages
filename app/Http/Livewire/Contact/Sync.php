@@ -18,7 +18,7 @@ class Sync extends Component
     public function sync()
     {
         $hubSpot = \HubSpot\Factory::createWithAccessToken( config('urbe.hubspot.token') );
-        foreach (Contact::all() as $contact) {
+        foreach (Contact::orderBy('created_at', 'desc')->get() as $contact) {
             // Search by email to avoid duplicates
             $filter = new \HubSpot\Client\Crm\Contacts\Model\Filter();
             $filter->setOperator('EQ')
@@ -52,8 +52,8 @@ class Sync extends Component
                 }
             }
             // Hubspot Search API only supports 4 requests per second, but fails anyways.
-            // So, we sleep every 1 second to prevent the sync from failing.
-            sleep(1);
+            // So, we sleep every 2 second to prevent the sync from failing.
+            sleep(2);
         }
         session()->flash('flash.banner', 'Your contacts have been syncronized with Hubspot.');
         session()->flash('flash.bannerStyle', 'success');
