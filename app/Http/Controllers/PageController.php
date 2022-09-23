@@ -89,21 +89,23 @@ class PageController extends Controller
         $searchRequest->setFilterGroups([$filterGroup]);
         $contactsPage = $hubSpot->crm()->contacts()->searchApi()->doSearch($searchRequest);
 
+        $properties = [
+            'email' => $request['email'],
+            'firstname' => $request['firstname'],
+            'lastname' => $request['lastname'],
+            'phone' => $request['phone'],
+            'lead_source' => $request['source'],
+            'zip' => $request['zip'],
+            'program_of_interest' => $request['program_of_interest'],
+            'hs_lead_status' => 'NEW',
+            'hs_analytics_source' => 'PAID_SEARCH'
+        ];
+
         // Create lead if doesn't already exist in database
         if ((integer) $contactsPage->getTotal() < 1) {
             try {
                 $contactInput = new \HubSpot\Client\Crm\Contacts\Model\SimplePublicObjectInput();
-                $contactInput->setProperties([
-                    'email' => $request['email'],
-                    'firstname' => $request['firstname'],
-                    'lastname' => $request['lastname'],
-                    'phone' => $request['phone'],
-                    'lead_source' => $request['source'],
-                    'zip' => $request['zip'],
-                    'program_of_interest' => $request['program_of_interest'],
-                    'hs_lead_status' => 'NEW',
-                    'hs_analytics_source' => 'PAID_SEARCH'
-                ]);
+                $contactInput->setProperties($properties);
                 $hubSpot->crm()->contacts()->basicApi()->create($contactInput);
                 Mail::to(config('urbe.marketing.email'))->send( new NotifyMarketingOfNewLead(
                     $request['firstname'],
@@ -118,6 +120,12 @@ class PageController extends Controller
                 // Add Email notification when it fails to send to Hubspot
                 Mail::to(config('urbe.support.email'))->send( new ContactToHubspotFails() );
             }
+        } else {
+            // Update the existing contact
+            $contact_id = $contactsPage->getResults()[0]['id'];
+            $SimplePublicObjectInput = new \HubSpot\Client\Crm\Contacts\Model\SimplePublicObjectInput();
+            $SimplePublicObjectInput->setProperties($properties);
+            $hubSpot->crm()->contacts()->basicApi()->update($contact_id, $SimplePublicObjectInput);
         }
 
         return redirect()->route('form.success', [
