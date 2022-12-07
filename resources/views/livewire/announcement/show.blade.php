@@ -3,7 +3,7 @@
         <div class="w-full bg-yellow-300 z-50">
             <div class="max-w-7xl mx-auto text-center py-4">
                 @if (app()->getLocale() == 'en')
-                    <h1 class="capitalize text-xl text-[#073260]">{{ $event->semester }} session starts <span class="font-bold">{{ Carbon\Carbon::parse($event->starts_at)->format('F j') }}</span></h1>
+                    <h1 class="capitalize text-xl text-[#073260]">{{ $event->semester }} session starts <span class="font-bold">{{ Carbon\Carbon::parse($event->starts_at)->format('F jS') }}</span></h1>
                 @else
                 @php
                     Carbon\Carbon::setUTF8(true);
