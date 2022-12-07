@@ -10,7 +10,7 @@
                     Carbon\Carbon::setLocale('es_US.utf8');
                     setLocale(LC_ALL, 'es_US.utf8');
                 @endphp
-                    <h1 class="text-xl text-white">El próximo inicio de clases comienza el <span class="font-bold">{{ Carbon\Carbon::parse($event->starts_at)->formatLocalized('%d %B') }}</span></h1>
+                    <h1 class="text-xl text-white">El próximo inicio de clases comienza el <span class="font-bold">{{ Carbon\Carbon::parse($event->starts_at)->formatLocalized('%d de %B') }}</span></h1>
                 @endif
             </div>
         </div>
