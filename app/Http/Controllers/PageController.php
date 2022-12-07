@@ -7,6 +7,7 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Mail\ContactToDBFailed;
 use App\Mail\ContactToHubspotFails;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotifyMarketingOfNewLead;
@@ -31,6 +32,9 @@ class PageController extends Controller
                     'questions' => $page->questions,
                     'lock_docs' => $page->lock_docs,
                 ];
+                if ($page->template == 'classic-es') {
+                    App::setLocale('es');
+                }
                 return view('web.templates.'.$page->template, $options);
         } else {
             return view('web.templates.request-information');

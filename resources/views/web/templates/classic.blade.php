@@ -66,7 +66,9 @@
     </head>
     <body class="bg-white">
         @include('web.partials.clickcease')
+        @livewire('announcement.show')
         @include('web.nav')
+
         {{-- Header --}}
         <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="header">
             <div class="py-12 sm:hidden text-center mb-6">
@@ -140,7 +142,6 @@
                 </div>
             </div>
         </header>
-
         {{-- Main section --}}
         <main class="w-full">
             {{-- About the program --}}
