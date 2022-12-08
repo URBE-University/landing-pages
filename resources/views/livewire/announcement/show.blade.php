@@ -14,6 +14,9 @@
                     setLocale(LC_ALL, 'es_US.utf8');
                 @endphp
                     <h1 class="text-xl text-[#073260]">El próximo inicio de clases comienza el <span class="font-bold">{{ Carbon\Carbon::parse($event->starts_at)->formatLocalized('%d de %B') }}</span></h1>
+                    @if ($event->semester == 'Fall B' || $event->semester == 'Winter A')
+                        <img src="{{ asset('santa-claus.png') }}" alt="" class="w-10">
+                    @endif
                 @endif
             </div>
         </div>
