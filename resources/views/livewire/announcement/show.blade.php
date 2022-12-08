@@ -1,7 +1,7 @@
 <div>
     @if ($event)
         <div class="w-full bg-[#ffd308] z-50">
-            <div class="max-w-7xl mx-auto text-left md:text-center py-4 flex items-center justify-center space-x-3">
+            <div class="max-w-7xl mx-auto text-left md:text-center p-4 flex items-center justify-center space-x-3">
                 @if (app()->getLocale() == 'en')
                     <h1 class="capitalize text-xl text-[#073260]">{{ $event->semester }} session starts <span class="font-bold">{{ Carbon\Carbon::parse($event->starts_at)->format('F jS') }}</span></h1>
                     @if ($event->semester == 'Fall B' || $event->semester == 'Winter A')
